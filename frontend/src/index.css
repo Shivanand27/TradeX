@@ -1,0 +1,26 @@
+/* src/index.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    font-family: 'IBM Plex Mono', monospace;
+    background: #060809;
+    color: #c8d8e8;
+    overflow: hidden;
+  }
+}
+
+@layer utilities {
+  .up   { color: #00e676; }
+  .dn   { color: #ff3b4e; }
+  .fl   { color: #6a8099; }
+  .text-amber  { color: #ff8c00; }
+  .text-cyan   { color: #00d4ff; }
+  .text-t1     { color: #c8d8e8; }
+  .text-t2     { color: #6a8099; }
+  .text-t3     { color: #334455; }
+  .bg-terminal { background: #060809; }
+  .border-terminal { border-color: #1f2830; }
+}

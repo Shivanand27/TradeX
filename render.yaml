@@ -1,0 +1,25 @@
+services:
+  - type: web
+    name: tradex-api
+    env: python
+    plan: free
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn api:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /health
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.11"
+      - fromGroup: tradex-secrets
+
+  - type: worker
+    name: tradex-scheduler
+    env: python
+    plan: free
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: python scheduler.py
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.11"
+      - fromGroup: tradex-secrets
